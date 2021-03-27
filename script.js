@@ -13,7 +13,7 @@ $("#search").submit(function(event){
     var city = $("#userInput").val();
     var userCity = $("#userInput").val();
     document.getElementById("search").reset();
-    userCity = userCity.replace(/\s+/g, ',').toLowerCase();
+    userCity = userCity.replace(/\s+/g, '+').toLowerCase();
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q="+ 
     userCity + "&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
 
@@ -35,6 +35,20 @@ $("#search").submit(function(event){
             currentHumid.innerHTML = "Humidity: " + humid + " %";
             currentWind.innerHTML = "Wind Speed: " + wind + " MPH";
 
+            var fiveDay = "https://api.openweathermap.org/data/2.5/onecall?lat="+ 
+            data.coord.lat + "&lon=" + data.coord.lon+ 
+            "&exclude=current,minutely,alerts,hourly&appid=080f42673958d9248cf81c7911a0770a";
+
+            fetch(fiveDay)
+            .then(function(forecast){
+                console.log(forecast);
+                forecast.json()
+                .then(data => {
+                    console.log(data)
+                    
+                })
+            })
+            
             var uvURL ="http://api.openweathermap.org/data/2.5/uvi?lat="+ 
             data.coord.lat+ "&lon=" +data.coord.lon+ "&appid=080f42673958d9248cf81c7911a0770a";
             fetch(uvURL)
