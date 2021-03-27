@@ -14,12 +14,14 @@
 </head>
 
 <body class="bg-light">
+
     <header class="col-12 vw-100 bg-primary p-3 d-flex justify-content-center">
         <h1 class="text-white">Weather Dashboard</h1>
     </header>
 
     <main class="d-flex flex-row">
-        <aside class="col-3 card">
+
+        <aside class="col-3 card vh-auto">
             <h3 class="my-3">Search for a City:</h3>
             <form class="form-inline" id="search">
                 <input id="userInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -27,18 +29,18 @@
             </form>
             <ul class="list-group my-4">
                 <li class="list-group-item">Search</li>
+                <!-- <li class="list-group-item">Search</li>
                 <li class="list-group-item">Search</li>
                 <li class="list-group-item">Search</li>
                 <li class="list-group-item">Search</li>
                 <li class="list-group-item">Search</li>
                 <li class="list-group-item">Search</li>
-                <li class="list-group-item">Search</li>
-                <li class="list-group-item">Search</li>
+                <li class="list-group-item">Search</li> -->
             </ul>
         </aside>
 
         <section class="col-9 d-flex flex-column">
-            <section id="currentCard" class="card text-dark bg-white my-4">
+            <div id="currentCard" class="card text-dark bg-white my-4">
                     <div class="card-body">
                     <div class="d-flex flex-row"><h2 id= "city" class="card-title"></h2><img id="icon"></div>
                       <p id="temp" class="card-text text-primary"></p>
@@ -46,53 +48,53 @@
                       <p id="wind" class="card-text text-primary"></p>
                       <p id="uv" class="card-text text-primary"></p>
                     </div>
-            </section>
-            <section id="forecastCard">
+            </div>
+            <div id="forecastCard">
                 <h2 class="col-12">5-Day Forecast:</h2>
-                <div class="col-12 d-flex flex-row justify-content-around">
-                    <div class="card text-white bg-primary px-3">
+                <div id="cards" class="col-12 d-flex flex-row justify-content-around">
+                    <div id="demoCard" class="card text-white bg-primary">
                         <div class="card-body">
-                          <h5 class="card-title forecastDate">Date</h5>
-                          <p class="card-text forecastIcon">Icon:</p>
-                          <p class="card-text forecastTemp">Temperature:</p>
-                          <p class="card-text forecastHumid">Humidity:</p>
+                          <h5 id="date1" class="card-title"></h5>
+                          <img id="icon1" class="card-text"></img>
+                          <p id="temp1" class="card-text"></p>
+                          <p id="humid1" class="card-text"></p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary px-3">
+                    <div id="demoCard" class="card text-white bg-primary">
                         <div class="card-body">
-                          <h5 class="card-title forecastDate">Date</h5>
-                          <p class="card-text forecastIcon">Icon:</p>
-                          <p class="card-text forecastTemp">Temperature:</p>
-                          <p class="card-text forecastHumid">Humidity:</p>
+                          <h5 id="date2" class="card-title"></h5>
+                          <img id="icon2" class="card-text"></img>
+                          <p id="temp2" class="card-text"></p>
+                          <p id="humid2" class="card-text"></p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary px-3">
+                    <div id="demoCard" class="card text-white bg-primary">
                         <div class="card-body">
-                          <h5 class="card-title forecastDate">Date</h5>
-                          <p class="card-text forecastIcon">Icon:</p>
-                          <p class="card-text forecastTemp">Temperature:</p>
-                          <p class="card-text forecastHumid">Humidity:</p>
+                          <h5 id="date3" class="card-title"></h5>
+                          <img id="icon3" class="card-text"></img>
+                          <p id="temp3" class="card-text"></p>
+                          <p id="humid3" class="card-text"></p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary px-3">
+                    <div id="demoCard" class="card text-white bg-primary">
                         <div class="card-body">
-                          <h5 class="card-title forecastDate">Date</h5>
-                          <p class="card-text forecastIcon">Icon:</p>
-                          <p class="card-text forecastTemp">Temperature:</p>
-                          <p class="card-text forecastHumid">Humidity:</p>
+                          <h5 id="date4" class="card-title"></h5>
+                          <img id="icon4" class="card-text"></img>
+                          <p id="temp4" class="card-text"></p>
+                          <p id="humid4" class="card-text"></p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary px-3">
+                    <div id="demoCard" class="card text-white bg-primary">
                         <div class="card-body">
-                          <h5 class="card-title forecastDate">Date</h5>
-                          <p class="card-text forecastIcon">Icon:</p>
-                          <p class="card-text forecastTemp">Temperature:</p>
-                          <p class="card-text forecastHumid">Humidity:</p>
+                          <h5 id="date5" class="card-title"></h5>
+                          <img id="icon5" class="card-text"></img>
+                          <p id="temp5" class="card-text"></p>
+                          <p id="humid5" class="card-text"></p>
                         </div>
                     </div>
-                </div>
-            </section>
-        </section>   
+                </div> 
+            </div>
+        </section>  
     </main>
     <script src="script.js"></script>
 </body>

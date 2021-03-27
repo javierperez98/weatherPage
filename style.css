@@ -5,3 +5,7 @@
 #currentCard, #forecastCard {
     display: none;
 }
+
+#hidden {
+    display: none;
+}
