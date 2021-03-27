@@ -1,0 +1,7 @@
+#icon {
+    height: 50px;
+}
+
+#currentCard, #forecastCard {
+    display: none;
+}
