@@ -8,30 +8,36 @@ var currentCard = document.getElementById("currentCard");
 var currentDay = moment().format('MM/DD/YYYY');
 var forecastCard = document.getElementById("forecastCard");
 
-var day1Date = document.getElementById("date1");
-var day1Icon = document.getElementById("icon1");
-var day1Temp = document.getElementById("temp1");
-var day1Humid = document.getElementById("humid1");
-
-var day2Date = document.getElementById("date2");
-var day2Icon = document.getElementById("icon2");
-var day2Temp = document.getElementById("temp2");
-var day2Humid = document.getElementById("humid2");
-
-var day3Date = document.getElementById("date3");
-var day3Icon = document.getElementById("icon3");
-var day3Temp = document.getElementById("temp3");
-var day3Humid = document.getElementById("humid3");
-
-var day4Date = document.getElementById("date4");
-var day4Icon = document.getElementById("icon4");
-var day4Temp = document.getElementById("temp4");
-var day4Humid = document.getElementById("humid4");
-
-var day5Date = document.getElementById("date5");
-var day5Icon = document.getElementById("icon5");
-var day5Temp = document.getElementById("temp5");
-var day5Humid = document.getElementById("humid5");
+var day1 = [
+    document.getElementById("date1"),
+    document.getElementById("icon1"),
+    document.getElementById("temp1"),
+    document.getElementById("humid1"),
+];
+var day2 = [
+    document.getElementById("date2"),
+    document.getElementById("icon2"),
+    document.getElementById("temp2"),
+    document.getElementById("humid2"),
+];
+var day3 = [
+    document.getElementById("date3"),
+    document.getElementById("icon3"),
+    document.getElementById("temp3"),
+    document.getElementById("humid3"),
+];
+var day4 = [
+    document.getElementById("date4"),
+    document.getElementById("icon4"),
+    document.getElementById("temp4"),
+    document.getElementById("humid4"),
+];
+var day5 = [
+    document.getElementById("date5"),
+    document.getElementById("icon5"),
+    document.getElementById("temp5"),
+    document.getElementById("humid5"),
+];
 
 $("#search").submit(function(event){
     event.preventDefault();
