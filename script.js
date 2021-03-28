@@ -43,7 +43,7 @@ $("#search").submit(function(event){
     var userCity = $("#userInput").val();
     document.getElementById("search").reset();
     userCity = userCity.replace(/\s+/g, '+').toLowerCase();
-    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q="+ 
+    var requestUrl = "HTTPS:api.openweathermap.org/data/2.5/weather?q="+ 
     userCity + "&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
 
     fetch(requestUrl)
@@ -54,7 +54,7 @@ $("#search").submit(function(event){
         .then(data => {
             console.log(data);
             var weather = data.weather[0].icon;
-            var icon = "http://openweathermap.org/img/wn/" + weather + "@2x.png";
+            var icon = "HTTPS:openweathermap.org/img/wn/" + weather + "@2x.png";
             var temp = data.main.temp;
             var humid = data.main.humidity;
             var wind = data.wind.speed;
@@ -64,7 +64,7 @@ $("#search").submit(function(event){
             currentHumid.innerHTML = "Humidity: " + humid + " %";
             currentWind.innerHTML = "Wind Speed: " + wind + " MPH";
 
-            var fiveDay = "https://api.openweathermap.org/data/2.5/onecall?lat="+ 
+            var fiveDay = "HTTPS:api.openweathermap.org/data/2.5/onecall?lat="+ 
             data.coord.lat + "&lon=" + data.coord.lon+ 
             "&exclude=current,minutely,alerts,hourly&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
 
@@ -75,7 +75,7 @@ $("#search").submit(function(event){
                 .then(data => {
                     for (i=0; i<5; i+=1) {
                         console.log(data.daily)
-                        var symbol = "http://openweathermap.org/img/wn/" + data.daily[i+1].weather[0].icon + "@2x.png";
+                        var symbol = "HTTPS:openweathermap.org/img/wn/" + data.daily[i+1].weather[0].icon + "@2x.png";
                         days[i].innerHTML = moment.unix(data.daily[i+1].dt).format('MM/DD/YYYY');
                         icons[i].setAttribute("src", symbol);
                         temps[i].innerHTML = "Temperature: " + data.daily[i+1].temp.day + " °F";
@@ -84,7 +84,7 @@ $("#search").submit(function(event){
                 })
             })
             
-            var uvURL ="http://api.openweathermap.org/data/2.5/uvi?lat="+ 
+            var uvURL ="HTTPS:api.openweathermap.org/data/2.5/uvi?lat="+ 
             data.coord.lat+ "&lon=" +data.coord.lon+ "&appid=080f42673958d9248cf81c7911a0770a";
             fetch(uvURL)
             .then(function(uvInfo){
