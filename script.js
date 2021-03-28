@@ -7,6 +7,7 @@ var currentIcon = document.getElementById("icon");
 var currentCard = document.getElementById("currentCard");
 var currentDay = moment().format('MM/DD/YYYY');
 var forecastCard = document.getElementById("forecastCard");
+var formBox = $("#userInput");
 
 var days = [
     document.getElementById("date1"),
@@ -39,8 +40,8 @@ var humids = [
 
 $("#search").submit(function(event){
     event.preventDefault();
-    var city = $("#userInput").val();
-    var userCity = $("#userInput").val();
+    var city = formBox.val();
+    var userCity = formBox.val();
     document.getElementById("search").reset();
     userCity = userCity.replace(/\s+/g, '+').toLowerCase();
     var requestUrl = "HTTPS://api.openweathermap.org/data/2.5/weather?q="+ 
@@ -81,27 +82,31 @@ $("#search").submit(function(event){
                         temps[i].innerHTML = "Temperature: " + data.daily[i+1].temp.day + " °F";
                         humids[i].innerHTML = "Humidity: " + data.daily[i+1].humidity + " %";
                     };
-                })
-            })
+                });
+            });
             
             var uvURL ="HTTPS://api.openweathermap.org/data/2.5/uvi?lat="+ 
             data.coord.lat+ "&lon=" +data.coord.lon+ "&appid=080f42673958d9248cf81c7911a0770a";
+            
             fetch(uvURL)
             .then(function(uvInfo){
                 console.log(uvInfo);
                 uvInfo.json()
                 .then(data => {
-                    console.log(data.value)
+                    console.log(data.value);
                     currentUV.innerHTML = "UV Index: " + data.value;
                     currentCard.style.display = "block";
                     forecastCard.style.display = "block";
-                })
-            })
+                });
+            });
         });
+
+        window.localStorage.setItem(city, city);
+        console.log(window.localStorage.getItem(city));
     }
     else {
-        alert("City not Available or does not exist. Please try again.")
+        alert("City not Available or does not exist. Please try again.");
         return;
-    }    
+    };   
   });
 });
