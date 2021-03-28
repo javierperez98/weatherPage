@@ -8,34 +8,32 @@ var currentCard = document.getElementById("currentCard");
 var currentDay = moment().format('MM/DD/YYYY');
 var forecastCard = document.getElementById("forecastCard");
 
-var day1 = [
+var days = [
     document.getElementById("date1"),
-    document.getElementById("icon1"),
-    document.getElementById("temp1"),
-    document.getElementById("humid1"),
-];
-var day2 = [
     document.getElementById("date2"),
-    document.getElementById("icon2"),
-    document.getElementById("temp2"),
-    document.getElementById("humid2"),
-];
-var day3 = [
     document.getElementById("date3"),
-    document.getElementById("icon3"),
-    document.getElementById("temp3"),
-    document.getElementById("humid3"),
-];
-var day4 = [
     document.getElementById("date4"),
-    document.getElementById("icon4"),
-    document.getElementById("temp4"),
-    document.getElementById("humid4"),
-];
-var day5 = [
     document.getElementById("date5"),
+];
+var icons = [
+    document.getElementById("icon1"),
+    document.getElementById("icon2"),
+    document.getElementById("icon3"),
+    document.getElementById("icon4"),
     document.getElementById("icon5"),
+];
+var temps = [
+    document.getElementById("temp1"),
+    document.getElementById("temp2"),
+    document.getElementById("temp3"),
+    document.getElementById("temp4"),
     document.getElementById("temp5"),
+];
+var humids = [
+    document.getElementById("humid1"),
+    document.getElementById("humid2"),
+    document.getElementById("humid3"),
+    document.getElementById("humid4"),
     document.getElementById("humid5"),
 ];
 
@@ -105,3 +103,12 @@ $("#search").submit(function(event){
     }    
   });
 });
+
+for (i=0; i<4; i+=1) {
+    console.log(data.daily)
+    var iconDay1 = "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png";
+    day1Date.innerHTML = moment.unix(data.daily[1].dt).format('MM/DD/YYYY');
+    day1Icon.setAttribute("src", iconDay1);
+    day1Temp.innerHTML = "Temperature: " + data.daily[1].temp.day + " °F";
+    day1Humid.innerHTML = "Humidity: " + data.daily[1].humidity + " %";
+};
