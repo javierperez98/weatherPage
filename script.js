@@ -73,12 +73,14 @@ $("#search").submit(function(event){
                 console.log(forecast);
                 forecast.json()
                 .then(data => {
-                    console.log(data.daily)
-                    var iconDay1 = "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png";
-                    day1Date.innerHTML = moment.unix(data.daily[1].dt).format('MM/DD/YYYY');
-                    day1Icon.setAttribute("src", iconDay1);
-                    day1Temp.innerHTML = "Temperature: " + data.daily[1].temp.day + " °F";
-                    day1Humid.innerHTML = "Humidity: " + data.daily[1].humidity + " %";
+                    for (i=0; i<5; i+=1) {
+                        console.log(data.daily)
+                        var symbol = "http://openweathermap.org/img/wn/" + data.daily[i+1].weather[0].icon + "@2x.png";
+                        days[i].innerHTML = moment.unix(data.daily[i+1].dt).format('MM/DD/YYYY');
+                        icons[i].setAttribute("src", symbol);
+                        temps[i].innerHTML = "Temperature: " + data.daily[i+1].temp.day + " °F";
+                        humids[i].innerHTML = "Humidity: " + data.daily[i+1].humidity + " %";
+                    };
                 })
             })
             
@@ -103,12 +105,3 @@ $("#search").submit(function(event){
     }    
   });
 });
-
-for (i=0; i<4; i+=1) {
-    console.log(data.daily)
-    var iconDay1 = "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon + "@2x.png";
-    day1Date.innerHTML = moment.unix(data.daily[1].dt).format('MM/DD/YYYY');
-    day1Icon.setAttribute("src", iconDay1);
-    day1Temp.innerHTML = "Temperature: " + data.daily[1].temp.day + " °F";
-    day1Humid.innerHTML = "Humidity: " + data.daily[1].humidity + " %";
-};
