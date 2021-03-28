@@ -49,7 +49,7 @@ var saved = [
     $("#city8"),
 ];
 
-$("#search").submit(function(event){
+$("#search").submit(function weatherSearch(event){
     event.preventDefault();
     var city = formBox.val();
     var userCity = formBox.val();
@@ -57,7 +57,7 @@ $("#search").submit(function(event){
     userCity = userCity.replace(/\s+/g, '+').toLowerCase();
     var requestUrl = "HTTPS://api.openweathermap.org/data/2.5/weather?q="+ 
     userCity + "&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-
+    
     fetch(requestUrl)
     .then(function (weatherInfo) {
     console.log(weatherInfo);
@@ -129,3 +129,11 @@ function storedCities() {
     $(saved[i]).css("display", "block");
     };
 };
+$(document).ready(function() {
+    storedCities();
+});
+$(".customBox").click(function() {
+    var button = formBox.val($(this).text());
+    console.log(button);
+    
+});

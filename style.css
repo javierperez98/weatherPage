@@ -2,7 +2,7 @@
     text-transform: capitalize;
 }
 
-#icon {
+img {
     height: 50px;
 }
 
@@ -16,4 +16,5 @@
 
 .customBox {
     display: none;
+    text-transform: capitalize;
 }
