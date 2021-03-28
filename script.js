@@ -132,8 +132,7 @@ function storedCities() {
 $(document).ready(function() {
     storedCities();
 });
-$(".customBox").click(function() {
+$(".customBtn").click(function() {
     var button = formBox.val($(this).text());
     console.log(button);
-    
 });
