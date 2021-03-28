@@ -38,6 +38,17 @@ var humids = [
     $("#humid5"),
 ];
 
+var saved = [
+    $("#city1"),
+    $("#city2"),
+    $("#city3"),
+    $("#city4"),
+    $("#city5"),
+    $("#city6"),
+    $("#city7"),
+    $("#city8"),
+];
+
 $("#search").submit(function(event){
     event.preventDefault();
     var city = formBox.val();
@@ -100,9 +111,9 @@ $("#search").submit(function(event){
                 });
             });
         });
-
         window.localStorage.setItem(city, city);
-        console.log(window.localStorage.getItem(city));
+        window.localStorage.getItem(city);
+        storedCities();
     }
     else {
         alert("City not Available or does not exist. Please try again.");
@@ -110,3 +121,11 @@ $("#search").submit(function(event){
     };   
   });
 });
+function storedCities() {
+    var citySaved = window.localStorage;
+    console.log(citySaved.length)
+    for (i=0; i < citySaved.length; i+=1) {
+    $(saved[i]).html(window.localStorage.key(i));
+    $(saved[i]).css("display", "block");
+    };
+};
