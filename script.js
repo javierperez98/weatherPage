@@ -1,3 +1,4 @@
+// Vars for Current Weather info
 var currentCity = $("#city");
 var currentTemp = $("#temp");
 var currentHumid = $("#humid");
@@ -5,10 +6,12 @@ var currentWind = $("#wind");
 var currentUV = $("#uv");
 var currentIcon = $("#icon");
 var currentDay = moment().format('MM/DD/YYYY');
-var formBox = $("#userInput");
 var currentCard = $("#currentCard");
+// 5 day forecast container
 var forecastCard = $("#forecastCard");
-
+// User city search input
+var formBox = $("#userInput");
+// dates for 5 day forecast
 var days = [
     $("#date1"),
     $("#date2"),
@@ -16,6 +19,7 @@ var days = [
     $("#date4"),
     $("#date5"),
 ];
+// weather icon for 5 day forecast
 var icons = [
     $("#icon1"),
     $("#icon2"),
@@ -23,6 +27,7 @@ var icons = [
     $("#icon4"),
     $("#icon5"),
 ];
+// temp for 5 day forecast
 var temps = [
     $("#temp1"),
     $("#temp2"),
@@ -30,6 +35,7 @@ var temps = [
     $("#temp4"),
     $("#temp5"),
 ];
+// humidity for 5 day forecast
 var humids = [
     $("#humid1"),
     $("#humid2"),
@@ -37,7 +43,7 @@ var humids = [
     $("#humid4"),
     $("#humid5"),
 ];
-
+// saved user searched cities 
 var saved = [
     $("#city1"),
     $("#city2"),
@@ -48,7 +54,7 @@ var saved = [
     $("#city7"),
     $("#city8"),
 ];
-
+// form sumbit function to grab user input
 $("#search").submit(function weatherSearch(event){
     event.preventDefault();
     var city = formBox.val();
@@ -57,7 +63,7 @@ $("#search").submit(function weatherSearch(event){
     userCity = userCity.replace(/\s+/g, '+').toLowerCase();
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q="+ 
     userCity + "&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-    
+    // fetch request for current weather data
     fetch(requestUrl)
     .then(function (weatherInfo) {
     console.log(weatherInfo);
@@ -79,7 +85,7 @@ $("#search").submit(function weatherSearch(event){
             var fiveDay = "https://api.openweathermap.org/data/2.5/onecall?lat="+ 
             data.coord.lat + "&lon=" + data.coord.lon+ 
             "&exclude=current,minutely,alerts,hourly&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-
+            // fetch for 5 day weather forecast data
             fetch(fiveDay)
             .then(function(forecast){
                 console.log(forecast);
@@ -98,7 +104,7 @@ $("#search").submit(function weatherSearch(event){
             
             var uvURL ="https://api.openweathermap.org/data/2.5/uvi?lat="+ 
             data.coord.lat+ "&lon=" +data.coord.lon+ "&appid=080f42673958d9248cf81c7911a0770a";
-
+            // fetch for UV index data
             fetch(uvURL)
             .then(function(uvInfo){
                 console.log(uvInfo);
@@ -111,12 +117,14 @@ $("#search").submit(function weatherSearch(event){
                 });
             });
         });
+        // store user searched cities 
         window.localStorage.setItem(city, city);
         window.localStorage.getItem(city);
         storedCities();
+        formBox.attr("placeholder", "City Name");
     }
     else {
-        alert("City not Available or does not exist. Please try again.");
+        formBox.attr("placeholder", "Invalid City");
         return;
     };   
   });
