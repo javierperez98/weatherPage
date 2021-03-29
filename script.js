@@ -136,3 +136,8 @@ $(".customBtn").click(function() {
     var button = formBox.val($(this).text());
     console.log(button);
 });
+
+$("#clear").click(function() {
+    window.localStorage.clear();
+    location.reload();
+});

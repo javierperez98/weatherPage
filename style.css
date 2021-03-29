@@ -19,3 +19,7 @@ img {
     display: none;
     text-transform: capitalize;
 }
+
+#clear {
+    max-height: 50px !important;
+}
