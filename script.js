@@ -90,7 +90,7 @@ $("#search").submit(function weatherSearch(event){
                         var symbol = "HTTPS://openweathermap.org/img/wn/" + data.daily[i+1].weather[0].icon + "@2x.png";
                         days[i].html(moment.unix(data.daily[i+1].dt).format('MM/DD/YYYY'));
                         icons[i].attr("src", symbol);
-                        temps[i].html("Temperature: " + data.daily[i+1].temp.day + " °F");
+                        temps[i].html("Temp: " + data.daily[i+1].temp.day + " °F");
                         humids[i].html("Humidity: " + data.daily[i+1].humidity + " %");
                     };
                 });
