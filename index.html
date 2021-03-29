@@ -15,44 +15,43 @@
 
 <body class="bg-light">
 
-    <header class="col-12 vw-100 bg-primary p-3 d-flex justify-content-center">
-        <h1 class="text-white">Weather Dashboard</h1>
+    <header class="col-12 bg-primary p-3 d-flex justify-content-center">
+        <h1 class="text-white">Weather Forecast</h1>
     </header>
 
-    <main class="d-flex flex-row customMain">
-
-        <aside class="col-3 card vh-auto customAside">
-            <h3 class="my-3">Search for a City:</h3>
-            <form class="form-inline" id="search">
-                <input id="userInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                <ul class="col-12 list-group my-4">
-                    <button id="city1" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city2" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city3" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city4" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city5" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city6" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city7" type="submit" class="list-group-item customBtn"></button>
-                    <button id="city8" type="submit" class="list-group-item customBtn"></button>
+    <main class="d-flex flex-column flex-lg-row">
+        <aside class="card col-12 col-lg-3 vh-100">
+            <form class="form-inline d-flex flex-md-row justify-content-md-center justify-content-lg-start" id="search">
+                <h3 class="my-3 mx-md-0">Search City:</h3>
+                <input id="userInput" class="form-control col-12 col-md-6 col-lg-7" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary col-12 col-md-3 col-lg-5" type="submit">Search</button>
+                <ul class="list-group my-3 pr-0 col-12 d-flex flex-md-row flex-md-wrap justify-content-md-center">
+                    <button id="city1" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city2" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city3" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city4" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city5" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city6" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city7" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
+                    <button id="city8" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
                 </ul>
             </form>
         </aside>
 
-        <section class="col-9 d-flex flex-column">
-            <div id="currentCard" class="card text-dark bg-white my-4">
-                    <div class="card-body">
-                    <div class="d-flex flex-row"><h2 id= "city" class="customMainCard card-title"></h2><img id="icon"></div>
-                      <p id="temp" class="card-text text-primary"></p>
-                      <p id="humid" class="card-text text-primary"></p>
-                      <p id="wind" class="card-text text-primary"></p>
-                      <p id="uv" class="card-text text-primary"></p>
+        <section class="col-12 col-lg-9">
+            <div id="currentCard" class="card text-dark bg-white my-3">
+                    <div class="card-body ">
+                        <div class=""><h2 id= "city" class="card-title"></h2><img id="icon"></div>
+                        <p id="temp" class="card-text text-primary"></p>
+                        <p id="humid" class="card-text text-primary"></p>
+                        <p id="wind" class="card-text text-primary"></p>
+                        <p id="uv" class="card-text text-primary"></p>
                     </div>
             </div>
             <div id="forecastCard">
-                <h2 class="col-12">5-Day Forecast:</h2>
-                <div id="cards" class="col-12 d-flex flex-row justify-content-between customBox">
-                    <div id="demoCard" class="card text-white bg-primary m-3 customCards">
+                <h2 class="">5-Day Forecast:</h2>
+                <div id="cards" class="d-flex flex-md-row flex-md-wrap flex-xl-nowrap flex-column">
+                    <div id="demoCard" class="card text-white bg-primary col-xl mx-xl-1 my-3 p-xl-2 col-md-6">
                         <div class="card-body">
                           <h5 id="date1" class="card-title"></h5>
                           <img id="icon1" class="card-text"></img>
@@ -60,7 +59,7 @@
                           <p id="humid1" class="card-text"></p>
                         </div>
                     </div>
-                    <div id="demoCard" class="card text-white bg-primary m-3 customCards">
+                    <div id="demoCard" class="card text-white bg-primary col-xl mx-xl-1 my-3 p-xl-2 col-md-6">
                         <div class="card-body">
                           <h5 id="date2" class="card-title"></h5>
                           <img id="icon2" class="card-text"></img>
@@ -68,7 +67,7 @@
                           <p id="humid2" class="card-text"></p>
                         </div>
                     </div>
-                    <div id="demoCard" class="card text-white bg-primary m-3 customCards">
+                    <div id="demoCard" class="card text-white bg-primary col-xl mx-xl-1 my-3 p-xl-2 col-md-4">
                         <div class="card-body">
                           <h5 id="date3" class="card-title"></h5>
                           <img id="icon3" class="card-text"></img>
@@ -76,7 +75,7 @@
                           <p id="humid3" class="card-text"></p>
                         </div>
                     </div>
-                    <div id="demoCard" class="card text-white bg-primary m-3 customCards">
+                    <div id="demoCard" class="card text-white bg-primary col-xl mx-xl-1 my-3 p-xl-2 col-md-4">
                         <div class="card-body">
                           <h5 id="date4" class="card-title"></h5>
                           <img id="icon4" class="card-text"></img>
@@ -84,7 +83,7 @@
                           <p id="humid4" class="card-text"></p>
                         </div>
                     </div>
-                    <div id="demoCard" class="card text-white bg-primary m-3 customCards">
+                    <div id="demoCard" class="card text-white bg-primary col-xl mx-xl-1 my-3 p-xl-2 col-md-4">
                         <div class="card-body">
                           <h5 id="date5" class="card-title"></h5>
                           <img id="icon5" class="card-text"></img>
