@@ -14,17 +14,19 @@
 </head>
 
 <body class="bg-light">
-
+    <!-- header page -->
     <header class="col-12 bg-primary p-3 d-flex justify-content-center">
         <h1 class="text-white">Weather Forecast</h1>
     </header>
 
-    <main class="d-flex flex-column flex-lg-row">
+    <main class="d-flex flex-column flex-lg-row mb-5">
+        <!-- search bar -->
         <aside class="card col-12 col-lg-3 vh-auto">
             <form class="form-inline d-flex flex-md-row justify-content-md-center justify-content-lg-start" id="search">
                 <h3 class="my-3 mx-md-0">Search City:</h3>
                 <input id="userInput" class="form-control col-12 col-md-6 col-lg-7" type="search" placeholder="City Name" aria-label="Search">
                 <button class="btn btn-outline-primary col-12 col-md-3 col-lg-5" type="submit">Search</button>
+                <!-- saved cities -->
                 <ul class="list-group mt-3 pr-0 col-12 d-flex flex-md-row flex-md-wrap justify-content-md-center">
                     <button id="city1" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
                     <button id="city2" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
@@ -36,10 +38,12 @@
                     <button id="city8" type="submit" class="list-group-item customBtn col-md-3 col-lg-12 my-lg-1 p-2"></button>
                 </ul>
             </form>
+            <!-- clear saved cities -->
             <button id="clear" class="btn btn-outline-primary col mt-1 mb-3">Clear</button>
         </aside>
-
+        <!-- weather forecast -->
         <section class="col-12 col-lg-9">
+            <!-- current weather forecast -->
             <div id="currentCard" class="card text-dark bg-white my-3">
                     <div class="card-body pt-0">
                         <div class="d-flex flew-row"><h2 id= "city" class="card-title mt-4"></h2><img id="icon"></div>
@@ -49,6 +53,7 @@
                         <p id="uv" class="card-text text-primary"></p>
                     </div>
             </div>
+            <!-- 5day weather forecast -->
             <div id="forecastCard">
                 <h2 class="">5-Day Forecast:</h2>
                 <div id="cards" class="d-flex flex-sm-row flex-sm-wrap flex-xl-nowrap flex-column">
@@ -96,6 +101,13 @@
             </div>
         </section>  
     </main>
-    <script src="script.js"></script>
+    <!-- page footer -->
+    <footer class="navbar navbar-dark bg-primary col-12 fixed-bottom d-flex flew-row justify-content-around mt-5">
+        <a class="navbar-brand" href="https://github.com/javierperez98">GitHub</a>
+        <a class="navbar-brand" href="mailto:javier21perez98@gmail.com">Email</a>
+        <a class="navbar-brand" href="https://www.linkedin.com/in/javier-perez98/">LinkedIn</a>
+        <li class="navbar-brand">©Copyright 2021 Javier Perez</li>
+    </footer>
 </body>
+    <script src="script.js"></script>
 </html>

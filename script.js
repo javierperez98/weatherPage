@@ -70,6 +70,7 @@ $("#search").submit(function weatherSearch(event){
     if (weatherInfo.status === 200) {
         weatherInfo.json()
         .then(data => {
+            // appends data for current weather
             console.log(data);
             var weather = data.weather[0].icon;
             var icon = "https://openweathermap.org/img/wn/" + weather + "@2x.png";
@@ -91,6 +92,7 @@ $("#search").submit(function weatherSearch(event){
                 console.log(forecast);
                 forecast.json()
                 .then(data => {
+                    // appends data for 5day forecast to each container
                     for (i=0; i<5; i+=1) {
                         console.log(data.daily)
                         var symbol = "https://openweathermap.org/img/wn/" + data.daily[i+1].weather[0].icon + "@2x.png";
@@ -110,6 +112,7 @@ $("#search").submit(function weatherSearch(event){
                 console.log(uvInfo);
                 uvInfo.json()
                 .then(data => {
+                    // displays all the weather info
                     console.log(data.value);
                     currentUV.html("UV Index: " + data.value);
                     $(currentCard).css("display", "block");
@@ -124,11 +127,13 @@ $("#search").submit(function weatherSearch(event){
         formBox.attr("placeholder", "City Name");
     }
     else {
+        // notify user when city search failed
         formBox.attr("placeholder", "Invalid City");
         return;
     };   
   });
 });
+// displays searched cities for user to use again
 function storedCities() {
     var citySaved = window.localStorage;
     console.log(citySaved.length)
@@ -140,11 +145,12 @@ function storedCities() {
 $(document).ready(function() {
     storedCities();
 });
+// runs fuction again using saved cities
 $(".customBtn").click(function() {
     var button = formBox.val($(this).text());
     console.log(button);
 });
-
+// clear button for clearing saved cities
 $("#clear").click(function() {
     window.localStorage.clear();
     location.reload();
