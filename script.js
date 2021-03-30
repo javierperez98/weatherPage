@@ -138,8 +138,11 @@ function storedCities() {
     var citySaved = window.localStorage;
     console.log(citySaved.length)
     for (i=0; i < citySaved.length; i+=1) {
-    $(saved[i]).html(window.localStorage.key(i));
-    $(saved[i]).css("display", "block");
+        if(citySaved.length > 8) {
+            $(saved[0]).html(window.localStorage.key(i));
+        }
+        $(saved[i]).html(window.localStorage.key(i));
+        $(saved[i]).css("display", "block");
     };
 };
 $(document).ready(function() {
