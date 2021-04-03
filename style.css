@@ -1,25 +1,26 @@
 * {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 img {
-    height: 75px;
+	height: 75px;
 }
 
-#currentCard, #forecastCard {
-    display: none;
+#currentCard,
+#forecastCard {
+	display: none;
 }
 
 #hidden {
-    display: none;
+	display: none;
 }
 
 .customBtn {
-    border-width: 1px !important;
-    display: none;
-    text-transform: capitalize;
+	border-width: 1px !important;
+	display: none;
+	text-transform: capitalize;
 }
 
 #clear {
-    max-height: 50px !important;
+	max-height: 50px !important;
 }
