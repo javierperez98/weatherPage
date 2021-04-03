@@ -49,11 +49,9 @@ $("#search").submit(function weatherSearch(event) {
 		"&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
 	// fetch request for current weather data
 	fetch(requestUrl).then(function (weatherInfo) {
-		console.log(weatherInfo);
 		if (weatherInfo.status === 200) {
 			weatherInfo.json().then((data) => {
 				// appends data for current weather
-				console.log(data);
 				var weather = data.weather[0].icon;
 				var icon = "https://openweathermap.org/img/wn/" + weather + "@2x.png";
 				var temp = data.main.temp;
@@ -73,10 +71,8 @@ $("#search").submit(function weatherSearch(event) {
 					"&exclude=current,minutely,alerts,hourly&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
 				// fetch for 5 day weather forecast data
 				fetch(fiveDay).then(function (forecast) {
-					console.log(forecast);
 					forecast.json().then((data) => {
 						// appends data for 5day forecast to each container
-						console.log(data);
 						for (i = 0; i < 5; i += 1) {
 							var symbol =
 								"https://openweathermap.org/img/wn/" +
@@ -111,7 +107,6 @@ $("#search").submit(function weatherSearch(event) {
 // displays searched cities for user to use again
 function storedCities() {
 	var citySaved = window.localStorage;
-	console.log(citySaved.length);
 	for (i = 0; i < citySaved.length; i += 1) {
 		if (citySaved.length > 8) {
 			$(saved[0]).html(window.localStorage.key(-0));
@@ -125,8 +120,7 @@ $(document).ready(function () {
 });
 // runs fuction again using saved cities
 $(".customBtn").click(function () {
-	var button = formBox.val($(this).text());
-	console.log(button);
+	formBox.val($(this).text());
 });
 // clear button for clearing saved cities
 $("#clear").click(function () {
