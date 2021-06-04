@@ -1,24 +1,27 @@
 const searchForm = document.querySelector(".search-city");
 const cityName = document.querySelector(".city-name");
 
-search = (e) => {
+search = async (e) => {
 	e.preventDefault();
 	const city = cityName.value;
-	console.log(city);
 	searchForm.reset();
 	const searchCity = city.replace(/\s+/g, "+").toLowerCase();
-	console.log(searchCity);
-	let requestUrl =
+	let req =
 		"https://api.openweathermap.org/data/2.5/weather?q=" +
 		searchCity +
 		"&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-	fetch(requestUrl).then(function (weatherInfo) {
-		if (weatherInfo.status === 200) {
-			weatherInfo.json().then((data) => {
-				console.log(data);
-			});
-		}
-	});
+
+	const data = await findCity(req);
+	console.log(data);
+};
+
+findCity = async (req) => {
+	const res = await fetch(req);
+	if (!res.ok) {
+		throw new Error(`HTTP error! status: ${res.status}`);
+	}
+	const data = await res.json();
+	return data;
 };
 
 searchForm.addEventListener("submit", search);
@@ -36,14 +39,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		});
 	}
 });
-
-// var fiveDay =
-// 	"https://api.openweathermap.org/data/2.5/onecall?lat=" +
-// 	data.coord.lat +
-// 	"&lon=" +
-// 	data.coord.lon +
-// 	"&exclude=current,minutely,alerts,hourly&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-// // fetch for 5 day weather forecast data
-// fetch(fiveDay).then(function (forecast) {
-// 	forecast.json().then((data) => {});
-// });
