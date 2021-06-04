@@ -8,34 +8,17 @@ search = (e) => {
 	searchForm.reset();
 	const searchCity = city.replace(/\s+/g, "+").toLowerCase();
 	console.log(searchCity);
-	// var requestUrl =
-	// 	"https://api.openweathermap.org/data/2.5/weather?q=" +
-	// 	searchCity +
-	// 	"&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-	// // fetch request for current weather data
-	// fetch(requestUrl).then(function (weatherInfo) {
-	// 	if (weatherInfo.status === 200) {
-	// 		weatherInfo.json().then((data) => {
-	// 			// appends data for current weather
-	// 			var weather = data.weather[0].icon;
-	// 			var icon = "https://openweathermap.org/img/wn/" + weather + "@2x.png";
-	// 			var temp = data.main.temp;
-	// 			var humid = data.main.humidity;
-	// 			var wind = data.wind.speed;
-
-	// 			var fiveDay =
-	// 				"https://api.openweathermap.org/data/2.5/onecall?lat=" +
-	// 				data.coord.lat +
-	// 				"&lon=" +
-	// 				data.coord.lon +
-	// 				"&exclude=current,minutely,alerts,hourly&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-	// 			// fetch for 5 day weather forecast data
-	// 			fetch(fiveDay).then(function (forecast) {
-	// 				forecast.json().then((data) => {});
-	// 			});
-	// 		});
-	// 	}
-	// });
+	let requestUrl =
+		"https://api.openweathermap.org/data/2.5/weather?q=" +
+		searchCity +
+		"&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
+	fetch(requestUrl).then(function (weatherInfo) {
+		if (weatherInfo.status === 200) {
+			weatherInfo.json().then((data) => {
+				console.log(data);
+			});
+		}
+	});
 };
 
 searchForm.addEventListener("submit", search);
@@ -53,3 +36,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		});
 	}
 });
+
+// var fiveDay =
+// 	"https://api.openweathermap.org/data/2.5/onecall?lat=" +
+// 	data.coord.lat +
+// 	"&lon=" +
+// 	data.coord.lon +
+// 	"&exclude=current,minutely,alerts,hourly&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
+// // fetch for 5 day weather forecast data
+// fetch(fiveDay).then(function (forecast) {
+// 	forecast.json().then((data) => {});
+// });
