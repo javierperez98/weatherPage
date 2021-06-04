@@ -12,10 +12,11 @@ search = async (e) => {
 	searchForm.reset();
 	const searchCity = city.replace(/\s+/g, "+").toLowerCase();
 	const req = dayUrl1 + searchCity + dayUrl2;
-	const data = await findCity(req);
-	console.log(data);
-	const fiveDay =
-		fiveUrl1 + data.coord.lat + "&lon=" + data.coord.lon + fiveUrl2;
+	const current = await findCity(req);
+	console.log(current);
+	const fiveUrl =
+		fiveUrl1 + current.coord.lat + "&lon=" + current.coord.lon + fiveUrl2;
+	const fiveDay = await findCity(fiveUrl);
 	console.log(fiveDay);
 };
 
@@ -30,7 +31,7 @@ findCity = async (req) => {
 
 searchForm.addEventListener("submit", search);
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
 	const sidebarToggle = document.body.querySelector("#sidebarToggle");
 	if (sidebarToggle) {
 		sidebarToggle.addEventListener("click", (event) => {
