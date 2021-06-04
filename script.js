@@ -1,18 +1,22 @@
 const searchForm = document.querySelector(".search-city");
 const cityName = document.querySelector(".city-name");
+const key = "&appid=080f42673958d9248cf81c7911a0770a";
+const dayUrl1 = "https://api.openweathermap.org/data/2.5/weather?q=";
+const dayUrl2 = "&units=imperial" + key;
+const fiveUrl1 = "https://api.openweathermap.org/data/2.5/onecall?lat=";
+const fiveUrl2 = "&exclude=current,minutely,alerts,hourly&units=imperial" + key;
 
 search = async (e) => {
 	e.preventDefault();
 	const city = cityName.value;
 	searchForm.reset();
 	const searchCity = city.replace(/\s+/g, "+").toLowerCase();
-	let req =
-		"https://api.openweathermap.org/data/2.5/weather?q=" +
-		searchCity +
-		"&units=imperial&appid=080f42673958d9248cf81c7911a0770a";
-
+	const req = dayUrl1 + searchCity + dayUrl2;
 	const data = await findCity(req);
 	console.log(data);
+	const fiveDay =
+		fiveUrl1 + data.coord.lat + "&lon=" + data.coord.lon + fiveUrl2;
+	console.log(fiveDay);
 };
 
 findCity = async (req) => {
