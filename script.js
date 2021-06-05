@@ -23,7 +23,8 @@ search = async (e) => {
 			style: "col-12",
 			city: data.name,
 			date: formatDate(data.dt),
-			icon: data.weather[0].icon,
+			icon: "",
+			icon1: `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`,
 			temp: data.main.temp,
 			humid: data.main.humidity,
 			wind: `<p class="card-text">Wind Speed: ${data.wind.speed} MPH</p>`,
@@ -36,7 +37,8 @@ search = async (e) => {
 			style: "col-xl-3 col-md-6",
 			city: "",
 			date: formatDate(fiveDay.daily[i].dt),
-			icon: fiveDay.daily[i].weather[0].icon,
+			icon: `<img src="https://openweathermap.org/img/wn/${fiveDay.daily[i].weather[0].icon}@2x.png">`,
+			icon1: "",
 			temp: fiveDay.daily[i].temp.day,
 			humid: fiveDay.daily[i].humidity,
 			wind: "",
@@ -47,9 +49,10 @@ search = async (e) => {
 
 	forecast.forEach((info) => {
 		let markup = `<div class="${info.style}">
-      <div class="card text-dark bg-light mb-3">
-      <div class="card-body">
-      <h3 class="card-title">${info.city} ${info.date} ${info.icon}</h3>
+      <div class="card text-light bg-primary mb-3">
+      <div class="card-body p-4">
+      <h3 class="card-title">${info.city} ${info.date} ${info.icon1}</h3>
+      <h3 class="card-title text-center">${info.icon}</h3>
       <p class="card-text">Temperature: ${info.temp} °F</p>
       <p class="card-text">Humidity: ${info.humid} %</p>
       ${info.wind}
@@ -85,7 +88,7 @@ formatDate = (unix) => {
 		"Dec",
 	];
 	const date = new Date(unix * 1000);
-	const year = date.getFullYear().toString().substr(-2);
+	const year = date.getFullYear();
 	const month = months[date.getMonth()];
 	const day = date.getDate() <= 9 ? "0" + date.getDate() : date.getDate();
 	return [day, month, year].join("/");
