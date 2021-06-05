@@ -17,12 +17,20 @@ function deleteChild() {
 
 search = async (e) => {
 	e.preventDefault();
-	await deleteChild();
-	const city = cityName.value;
+	const city = cityName.value.trim();
 	searchForm.reset();
 	const searchCity = city.replace(/\s+/g, "+").toLowerCase();
+	const regex = /\d/;
+	const hasNums = regex.test(searchCity);
+	if (!searchCity || hasNums) {
+		return cityName.setAttribute("placeholder", "Invaild Input");
+	} else {
+		cityName.setAttribute("placeholder", "Search City");
+	}
 	const req = dayUrl1 + searchCity + dayUrl2;
 	const data = await findCity(req);
+	await deleteChild();
+	storeCities(city);
 	const fiveUrl =
 		fiveUrl1 + data.coord.lat + "&lon=" + data.coord.lon + fiveUrl2;
 	const fiveDay = await findCity(fiveUrl);
@@ -66,7 +74,7 @@ createCards = (arr) => {
       <h3 class="card-title text-center">${info.icon}</h3>
       <p class="card-text">Temperature: ${info.temp} °F</p>
       <p class="card-text">Humidity: ${info.humid} %</p>
-      <p class="card-text">Wind Speed: ${info.wind} MPH</p>
+      <p class="card-text">Wind: ${info.wind} MPH</p>
       <p class="card-text">UV Index: ${info.uv} %</p>
       </div>
       </div>
@@ -75,10 +83,20 @@ createCards = (arr) => {
 	});
 };
 
+storeCities = (city) => {
+	window.localStorage.setItem("city", JSON.stringify(city));
+	getCites();
+};
+
+getCites = () => {
+	console.log(window.localStorage);
+	console.log(JSON.parse(window.localStorage.getItem("city")));
+};
+
 findCity = async (req) => {
 	const res = await fetch(req);
 	if (!res.ok) {
-		throw new Error(`HTTP error! status: ${res.status}`);
+		throw cityName.setAttribute("placeholder", "City Not Found");
 	}
 	return res.json();
 };
@@ -105,6 +123,7 @@ formatDate = (unix) => {
 	return [day, month, year].join("/");
 };
 
+getCites();
 searchForm.addEventListener("submit", search);
 
 window.addEventListener("DOMContentLoaded", () => {
