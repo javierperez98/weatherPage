@@ -26,7 +26,6 @@ search = async (e) => {
 	const fiveUrl =
 		fiveUrl1 + data.coord.lat + "&lon=" + data.coord.lon + fiveUrl2;
 	const fiveDay = await findCity(fiveUrl);
-
 	const forecast = [
 		{
 			style: "col-12 weather-card-1",
@@ -36,8 +35,8 @@ search = async (e) => {
 			icon1: `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`,
 			temp: data.main.temp,
 			humid: data.main.humidity,
-			wind: `<p class="card-text">Wind Speed: ${data.wind.speed} MPH</p>`,
-			uv: `<p class="card-text">UV Index: ${fiveDay.daily[0].uvi} %</p>`,
+			wind: data.wind.speed,
+			uv: fiveDay.daily[0].uvi,
 		},
 	];
 
@@ -50,13 +49,12 @@ search = async (e) => {
 			icon1: "",
 			temp: fiveDay.daily[i].temp.day,
 			humid: fiveDay.daily[i].humidity,
-			wind: "",
-			uv: "",
+			wind: fiveDay.daily[i].wind_speed,
+			uv: fiveDay.daily[i].uvi,
 		};
 		forecast.push(day);
 	}
 	createCards(forecast);
-	console.log(forecast);
 };
 
 createCards = (arr) => {
@@ -68,8 +66,8 @@ createCards = (arr) => {
       <h3 class="card-title text-center">${info.icon}</h3>
       <p class="card-text">Temperature: ${info.temp} °F</p>
       <p class="card-text">Humidity: ${info.humid} %</p>
-      ${info.wind}
-      ${info.uv}
+      <p class="card-text">Wind Speed: ${info.wind} MPH</p>
+      <p class="card-text">UV Index: ${info.uv} %</p>
       </div>
       </div>
       </div>`;
@@ -132,8 +130,8 @@ const demo = [
 		icon1: '<img src="https://openweathermap.org/img/wn/04n@2x.png">',
 		temp: 61.99,
 		humid: 84,
-		wind: '<p class="card-text">Wind Speed: 6.91 MPH</p>',
-		uv: '<p class="card-text">UV Index: 9.93 %</p>',
+		wind: 6.91,
+		uv: 9.93,
 	},
 	{
 		style: "weather-card-2 col-xl-3 col-md-6",
@@ -143,8 +141,8 @@ const demo = [
 		icon1: "",
 		temp: 68.25,
 		humid: 61,
-		wind: "",
-		uv: "",
+		wind: 6.91,
+		uv: 9.93,
 	},
 	{
 		style: "weather-card-3 col-xl-3 col-md-6",
@@ -154,8 +152,8 @@ const demo = [
 		icon1: "",
 		temp: 66.67,
 		humid: 66,
-		wind: "",
-		uv: "",
+		wind: 6.91,
+		uv: 9.93,
 	},
 	{
 		style: "weather-card-4 col-xl-3 col-md-6",
@@ -165,8 +163,8 @@ const demo = [
 		icon1: "",
 		temp: 63.52,
 		humid: 65,
-		wind: "",
-		uv: "",
+		wind: 6.91,
+		uv: 9.93,
 	},
 	{
 		style: "weather-card-5 col-xl-3 col-md-6",
@@ -176,8 +174,8 @@ const demo = [
 		icon1: "",
 		temp: 66.18,
 		humid: 55,
-		wind: "",
-		uv: "",
+		wind: 6.91,
+		uv: 9.93,
 	},
 ];
 
