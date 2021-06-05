@@ -1,5 +1,6 @@
 const searchForm = document.querySelector(".search-city");
 const cityName = document.querySelector(".city-name");
+const cardsContainer = document.querySelector(".cards-container");
 const key = "&appid=080f42673958d9248cf81c7911a0770a";
 const dayUrl1 = "https://api.openweathermap.org/data/2.5/weather?q=";
 const dayUrl2 = "&units=imperial" + key;
@@ -74,6 +75,23 @@ formatDate = (unix) => {
 	const month = months[date.getMonth()];
 	const day = date.getDate() <= 9 ? "0" + date.getDate() : date.getDate();
 	return [day, month, year].join("/");
+};
+
+createCards = (info) => {
+	for (i = 0; i < 6; i += 1) {
+		const markup = `<div class="col-xl-3 col-md-6">
+    <div class="card text-dark bg-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Light card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+    </div>
+  </div>`;
+		cardsContainer.insertAdjacentHTML("afterend", markup);
+	}
 };
 
 searchForm.addEventListener("submit", search);
