@@ -22,7 +22,7 @@ search = async (e) => {
 		{
 			city: data.name,
 			date: formatDate(data.dt),
-			weather: data.weather[0].icon,
+			icon: data.weather[0].icon,
 			temp: data.main.temp,
 			humid: data.main.humidity,
 			wind: data.wind.speed,
@@ -34,7 +34,7 @@ search = async (e) => {
 		const day = {
 			city: "",
 			date: formatDate(fiveDay.daily[i].dt),
-			weather: fiveDay.daily[i].weather[0].icon,
+			icon: fiveDay.daily[i].weather[0].icon,
 			temp: fiveDay.daily[i].temp.day,
 			humid: fiveDay.daily[i].humidity,
 			wind: "",
@@ -43,7 +43,7 @@ search = async (e) => {
 		forecast.push(day);
 	}
 
-	console.log(forecast);
+	createCards(forecast);
 };
 
 findCity = async (req) => {
@@ -77,20 +77,20 @@ formatDate = (unix) => {
 	return [day, month, year].join("/");
 };
 
-createCards = (info) => {
+createCards = (arr) => {
 	for (i = 0; i < 6; i += 1) {
 		const markup = `<div class="col-xl-3 col-md-6">
     <div class="card text-dark bg-light mb-3">
       <div class="card-body">
-        <h5 class="card-title">Light card title</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
+        <h3 class="card-title">${arr[i].city} ${arr[i].date} ${arr[i].icon}</h3>
+        <p class="card-text">Temperature: ${arr[i].temp} °F</p>
+        <p class="card-text">Humidity: ${arr[i].humid} %</p>
+        <p class="card-text">Wind Speed: ${arr[i].wind} MPH</p>
+        <p class="card-text">UV Index: ${arr[i].uv}</p>
       </div>
     </div>
   </div>`;
-		cardsContainer.insertAdjacentHTML("afterend", markup);
+		cardsContainer.insertAdjacentHTML("beforebegin", markup);
 	}
 };
 
