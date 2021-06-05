@@ -57,34 +57,6 @@ git clone https://github.com/javierperez98/weatherPage.git
 
 <!-- Provide instructions and examples for use. Include screenshots as needed. -->
 
-### To start off you have a search bar where you can type in any city for a 6 day forecast of the weather.
-
-![SearchBar](images/searchBar.png)
-
-### Each city you search will get saved up to 8 cities for future use.
-
-![SaveCities](images/savedCity.png)
-
-### This is the weather forecast that will be displayed showing the date, weather condition, temperature, wind speed, uv index and humiditiy.
-
-![WeatherForecast](images/weatherForecast.png)
-
-### This is the responsive Desktop layout.
-
-![DesktopSite](images/desktop.png)
-
-### This is the responsive Laptop layout.
-
-![LaptopSite](images/laptop.png)
-
-### This is the responsive Tablet layout.
-
-![TabletSite](images/tablet.png)
-
-### This is the responsive Mobile layout.
-
-![MobileSite](images/mobile.png)
-
 ## `Credits`
 
 <!-- List your collaborators, if any, with links to their GitHub profiles. Links to websites or resources. -->
