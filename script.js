@@ -16,9 +16,18 @@ search = async (e) => {
 	const fiveUrl =
 		fiveUrl1 + data.coord.lat + "&lon=" + data.coord.lon + fiveUrl2;
 	const fiveDay = await findCity(fiveUrl);
-	const weather = [{ city: data.name, date: formatDate(data.dt) }];
-	console.log(weather);
-	console.log(data);
+	const dayOne = [
+		{
+			city: data.name,
+			date: formatDate(data.dt),
+			weather: data.weather[0].icon,
+			temp: data.main.temp,
+			humid: data.main.humidity,
+			wind: data.wind.speed,
+			uv: fiveDay.daily[0].uvi,
+		},
+	];
+	console.log(dayOne);
 	console.log(fiveDay);
 };
 
@@ -70,15 +79,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // {
-//   "weather": [
-//       {
-//           "id": 801,
-//           "main": "Clouds",
-//           "description": "few clouds",
-//           "icon": "02d"
-//       }
-//   ],
-//   "base": "stations",
 //   "main": {
 //       "temp": 71.74,
 //       "feels_like": 71.87,
@@ -94,19 +94,7 @@ window.addEventListener("DOMContentLoaded", () => {
 //   "clouds": {
 //       "all": 20
 //   },
-//   "dt": 1622850558,
-//   "sys": {
-//       "type": 1,
-//       "id": 5771,
-//       "country": "US",
-//       "sunrise": 1622810462,
-//       "sunset": 1622861600
-//   },
-//   "timezone": -25200,
-//   "id": 5391811,
-//   "name": "San Diego",
-//   "cod": 200
-// }
+//
 
 // {
 //   "daily": [
