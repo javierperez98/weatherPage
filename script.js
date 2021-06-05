@@ -7,8 +7,17 @@ const dayUrl2 = "&units=imperial" + key;
 const fiveUrl1 = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 const fiveUrl2 = "&exclude=current,minutely,alerts,hourly&units=imperial" + key;
 
+function deleteChild() {
+	document.querySelector(".weather-card-1").remove();
+	document.querySelector(".weather-card-2").remove();
+	document.querySelector(".weather-card-3").remove();
+	document.querySelector(".weather-card-4").remove();
+	document.querySelector(".weather-card-5").remove();
+}
+
 search = async (e) => {
 	e.preventDefault();
+	await deleteChild();
 	const city = cityName.value;
 	searchForm.reset();
 	const searchCity = city.replace(/\s+/g, "+").toLowerCase();
@@ -20,7 +29,7 @@ search = async (e) => {
 
 	const forecast = [
 		{
-			style: "col-12",
+			style: "col-12 weather-card-1",
 			city: data.name,
 			date: formatDate(data.dt),
 			icon: "",
@@ -34,7 +43,7 @@ search = async (e) => {
 
 	for (i = 1; i < 5; i += 1) {
 		const day = {
-			style: "col-xl-3 col-md-6",
+			style: `col-xl-3 col-md-6 weather-card-${i + 1}`,
 			city: "",
 			date: formatDate(fiveDay.daily[i].dt),
 			icon: `<img src="https://openweathermap.org/img/wn/${fiveDay.daily[i].weather[0].icon}@2x.png">`,
@@ -46,8 +55,12 @@ search = async (e) => {
 		};
 		forecast.push(day);
 	}
+	createCards(forecast);
+	console.log(forecast);
+};
 
-	forecast.forEach((info) => {
+createCards = (arr) => {
+	arr.forEach((info) => {
 		let markup = `<div class="${info.style}">
       <div class="card text-light bg-primary mb-3">
       <div class="card-body p-4">
@@ -109,3 +122,63 @@ window.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 });
+
+const demo = [
+	{
+		style: "weather-card-1 col-12",
+		city: "San Diego",
+		date: "04/Jun/2021",
+		icon: "",
+		icon1: '<img src="https://openweathermap.org/img/wn/04n@2x.png">',
+		temp: 61.99,
+		humid: 84,
+		wind: '<p class="card-text">Wind Speed: 6.91 MPH</p>',
+		uv: '<p class="card-text">UV Index: 9.93 %</p>',
+	},
+	{
+		style: "weather-card-2 col-xl-3 col-md-6",
+		city: "",
+		date: "05/Jun/2021",
+		icon: '<img src="https://openweathermap.org/img/wn/01d@2x.png">',
+		icon1: "",
+		temp: 68.25,
+		humid: 61,
+		wind: "",
+		uv: "",
+	},
+	{
+		style: "weather-card-3 col-xl-3 col-md-6",
+		city: "",
+		date: "06/Jun/2021",
+		icon: '<img src="https://openweathermap.org/img/wn/03d@2x.png">',
+		icon1: "",
+		temp: 66.67,
+		humid: 66,
+		wind: "",
+		uv: "",
+	},
+	{
+		style: "weather-card-4 col-xl-3 col-md-6",
+		city: "",
+		date: "07/Jun/2021",
+		icon: '<img src="https://openweathermap.org/img/wn/04d@2x.png">',
+		icon1: "",
+		temp: 63.52,
+		humid: 65,
+		wind: "",
+		uv: "",
+	},
+	{
+		style: "weather-card-5 col-xl-3 col-md-6",
+		city: "",
+		date: "08/Jun/2021",
+		icon: '<img src="https://openweathermap.org/img/wn/03d@2x.png">',
+		icon1: "",
+		temp: 66.18,
+		humid: 55,
+		wind: "",
+		uv: "",
+	},
+];
+
+createCards(demo);
