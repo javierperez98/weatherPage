@@ -7,8 +7,9 @@
     <a href="https://github.com/javierperez98"><img src="https://img.shields.io/github/followers/javierperez98?style=social" target="_blank" /></a>
 </p>
 <p align="center">
-    <img src="https://img.shields.io/badge/language-Javascript-yellow" />
-    <img src="https://img.shields.io/badge/css-Bootstrap-purple" />
+    <img src="https://img.shields.io/badge/language-Vue.js 3-green" />
+    <img src="https://img.shields.io/badge/language-TypeScript-blue" />
+    <img src="https://img.shields.io/badge/css-Sass-purple" />
     <img src="https://img.shields.io/badge/license-MIT-blue" />
     <img src="https://img.shields.io/tokei/lines/github/javierperez98/weatherPage" />
 </p>
@@ -22,8 +23,8 @@ What was your motivation? Why did you build this project? What problem does it s
 
 - In this project I created a Desktop, laptop, tablet and mobile responsive weather forecast webpage.
 - The layout was created using Bootstrap v4.
-- The weather data was provided using Jquery and Openweather API.
-- I really tested myself creating this webpage when it came to Javascript and Jquery beacuse it is an area I lack in.
+- The weather data was provided using Jquery and Open weather API.
+- I really tested myself creating this webpage when it came to Javascript and Jquery because it is an area I lack in.
 - None the less I feel very proud of the page I created and Learned a lot in the process.
 - I learned how to properly use Jquery functions and syntax, Bootstrap design and Javascript syntax.
 
