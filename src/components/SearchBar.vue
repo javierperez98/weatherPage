@@ -1,10 +1,16 @@
 <template>
-  <div class="search-box">
+  <div class="search-bar">
+    <button class="search-btn">
+      <img
+        @click="search"
+        class="search-icon"
+        src="@/assets/fa-search-location.svg"
+      />
+    </button>
     <input
       v-model="city"
-      @keydown="search"
       type="text"
-      class="search-bar"
+      class="search-input"
       placeholder="Enter City"
     />
   </div>
@@ -25,8 +31,8 @@ export default defineComponent({
     useStore();
   },
   methods: {
-    async search(e: KeyboardEvent) {
-      if (e.key == "Enter") {
+    async search() {
+      if (this.city) {
         const city = this.city.trim().replace(/\s+/g, "+").toLowerCase();
         this.$store.commit("setCity", city);
         const oneDay = await this.$store.dispatch(
@@ -49,27 +55,34 @@ export default defineComponent({
 
 <style lang="scss">
 .search {
-  &-box,
   &-bar {
-    display: block;
-    padding: 0.75rem;
+    display: flex;
+    flex-direction: row;
+  }
+  &-input {
+    background-color: var(--color-bg-var);
+    border-radius: 0 1rem 1rem 0;
+    text-transform: capitalize;
     color: var(--color-bg);
     font-size: 1.5rem;
-    background-color: var(--color-bg-var);
-    border-radius: 1rem;
     font-weight: 600;
-    text-transform: capitalize;
+    padding: 1rem;
+    width: 500px;
   }
-  &-box {
-    width: 600px;
+  &-btn {
+    border-right: 0.25rem solid var(--color-bg);
+    background-color: var(--color-bg-var);
+    border-radius: 1rem 0 0 1rem;
+    cursor: pointer;
+    padding: 1rem;
   }
-  &-bar {
-    width: 100%;
+  &-icon {
+    vertical-align: -0.5rem;
+    height: 2rem;
   }
 }
 @media screen and (max-width: 650px) {
   .search {
-    &-box,
     &-bar {
       width: 100%;
     }
