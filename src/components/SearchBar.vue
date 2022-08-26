@@ -1,5 +1,11 @@
 <template>
   <div class="search-bar">
+    <input
+      v-model="city"
+      type="text"
+      class="search-input"
+      placeholder="Enter City"
+    />
     <button class="search-btn">
       <img
         @click="search"
@@ -7,12 +13,6 @@
         src="@/assets/fa-search-location.svg"
       />
     </button>
-    <input
-      v-model="city"
-      type="text"
-      class="search-input"
-      placeholder="Enter City"
-    />
   </div>
 </template>
 
@@ -61,7 +61,7 @@ export default defineComponent({
   }
   &-input {
     background-color: var(--color-bg-var);
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 1rem 0 0 1rem;
     text-transform: capitalize;
     color: var(--color-bg);
     font-size: 1.5rem;
@@ -70,11 +70,11 @@ export default defineComponent({
     width: 500px;
   }
   &-btn {
-    border-right: 0.25rem solid var(--color-bg);
+    border-left: 0.25rem solid var(--color-bg);
     background-color: var(--color-bg-var);
-    border-radius: 1rem 0 0 1rem;
+    border-radius: 0 1rem 1rem 0;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0 0.5rem;
   }
   &-icon {
     vertical-align: -0.5rem;
@@ -83,7 +83,7 @@ export default defineComponent({
 }
 @media screen and (max-width: 650px) {
   .search {
-    &-bar {
+    &-input {
       width: 100%;
     }
   }
