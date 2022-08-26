@@ -21,12 +21,7 @@
 <!-- Provide a short description explaining the what, why, and how of your project.
 What was your motivation? Why did you build this project? What problem does it solve? What did you learn? -->
 
-- In this project I created a Desktop, laptop, tablet and mobile responsive weather forecast webpage.
-- The layout was created using Bootstrap v4.
-- The weather data was provided using Jquery and Open weather API.
-- I really tested myself creating this webpage when it came to Javascript and Jquery because it is an area I lack in.
-- None the less I feel very proud of the page I created and Learned a lot in the process.
-- I learned how to properly use Jquery functions and syntax, Bootstrap design and Javascript syntax.
+- In this project I created a mobile responsive weather forecast search app using the Open Weather Map Api. The layout was created using Vue.js 3, TypeScript and Sass.
 
 ## `Table of Contents`
 
@@ -58,19 +53,26 @@ git clone https://github.com/javierperez98/weatherPage.git
 
 <!-- Provide instructions and examples for use. Include screenshots as needed. -->
 
+- At the top there is a search bar to input a city you want to see the weather forecast for.
+- Click the search button icon to search the desired city you entered.
+- A forecast of Todays weather will display along with the 7 up coming days weather forecast.
+- The info will display Temperate, date, condition, humidity and wind speed.
+- Temperatures will display different colors based on its range.
+
+![Desktop](./src/assets/desktop.png)
+![Tablet](./src/assets/tablet.png)
+![Mobile](./src/assets/mobile.png)
+
 ## `Credits`
 
 <!-- List your collaborators, if any, with links to their GitHub profiles. Links to websites or resources. -->
 
-- https://getbootstrap.com/
+- https://vuejs.org/
 - https://stackoverflow.com/
 - https://openweathermap.org/api
-- https://learn.jquery.com/
-- https://www.w3schools.com/
-- https://developer.mozilla.org/en-US/
-- https://www.javascript.com/
 - https://www.google.com/
-- Chrome Dev Tools
+- https://www.typescriptlang.org/
+- https://sass-lang.com/
 
 ## `License`
 
