@@ -17,11 +17,12 @@ export default defineComponent({
 :root {
   --color-bg: #1f2937;
   --color-bg-var: #b4b4b4;
+  --color-prime: #5f9ea0;
   --color-light: #ffffffbf;
   --color-hot: #ff5959;
   --color-warm: #ff8c4a;
   --color-chilly: #22ceab;
-  --color-cold: #91b7ff;
+  --color-cold: #6da0ff;
   --con-w: 90%;
   --trans: all 400ms ease;
 }
