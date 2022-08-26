@@ -97,6 +97,9 @@ export default defineComponent({
     gap: 1.5rem;
   }
   &-card {
+    h2 {
+      color: var(--color-prime);
+    }
     padding: 2rem 1.5rem;
     border-radius: 2rem;
     transition: var(--trans);
